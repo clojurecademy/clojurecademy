@@ -1,0 +1,44 @@
+[
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/name
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/index
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/instruction-text
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/testing
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/course-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/instruction-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :sub-instruction/active?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}]

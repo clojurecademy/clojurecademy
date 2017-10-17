@@ -1,0 +1,43 @@
+[
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/name
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/run-pre-tests?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/initial-code
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/rule
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/subject-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/course-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :instruction/active?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ ]

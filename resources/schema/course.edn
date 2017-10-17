@@ -1,0 +1,110 @@
+[
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/name
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ ;;TODO make it id not name!!!! it should be :db.type/ref...
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/owner
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/title
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/short-description
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/long-description
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/report-bug-email-or-link
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/who-is-this-course-for
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/active?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/skip?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/released?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/latest-release
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/latest-commit
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/users
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/many
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/helper-fns
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :course/created-time
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ ]

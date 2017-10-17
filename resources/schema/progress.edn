@@ -1,0 +1,79 @@
+[
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/user-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/course-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/chapter-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/sub-chapter-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/subject-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/instruction-id
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/last-updated
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/no-ins?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/sub-instructions
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/many
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/code
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true
+  :db/noHistory          true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :progress/done?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ ]

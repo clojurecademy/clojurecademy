@@ -1,0 +1,159 @@
+[
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/username
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/unique             :db.unique/identity
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/password
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/email
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db/unique             :db.unique/identity
+  :db.install/_attribute :db.part/db
+  :db/index              true}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/fullname
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/about
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/website
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/github
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/twitter
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/linkedin
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/stackoverflow
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/cookie
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/courses
+  :db/valueType          :db.type/ref
+  :db/cardinality        :db.cardinality/many
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/last-login
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/created-time
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/active?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/email-activated?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/activation-time
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/activation-key
+  :db/valueType          :db.type/string
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/role
+  :db/valueType          :db.type/keyword
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/wide-size-on?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/learn-wide-size-on?
+  :db/valueType          :db.type/boolean
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+
+
+ {:db/id                 #db/id[:db.part/db]
+  :db/ident              :user/font-size
+  :db/valueType          :db.type/long
+  :db/cardinality        :db.cardinality/one
+  :db.install/_attribute :db.part/db}
+ ]
