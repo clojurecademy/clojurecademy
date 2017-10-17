@@ -20,9 +20,6 @@
   (:gen-class)
   (:import (java.io File)))
 
-;;TODO remove afterwards
-;(set! *warn-on-reflection* true)
-
 (def ignored-csrf-paths ["/course/upload"])
 
 (def resource-nses '[clojurecademy.resource.auth
@@ -47,7 +44,6 @@
   []
   (conf/init!)
   (db/create-db!))
-
 
 (defn start
   [port]
