@@ -1,0 +1,2 @@
+* linguist-vendored
+*.clj linguist-vendored=false
