@@ -34,7 +34,6 @@
                  (wrap-anti-forgery {:ignored-paths ignored-csrf-paths})
                  (wrap-multipart-params {:max-file-size 11000000})
                  wrap-params
-                 ;;TODO add basic auth middleware
                  (wrap-defaults (dissoc (dissoc site-defaults :security :anti-forgery) :params :multipart))
                  wrap-exceptions
                  wrap-reload
