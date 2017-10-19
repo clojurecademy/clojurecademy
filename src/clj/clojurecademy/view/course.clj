@@ -93,7 +93,6 @@
         [:div.editor-footer
          [:div.fcn-tabs-container
           [:div.editor-footer__buttons
-
            [:div._2rMsW52-vRt_jDn9YIoIoj
             [:span._2ieC2TsGV0VNSmeBczgbwo "⌥(Alt) + Enter"]
             [:div.bCD0tEslEFIV_i4IX_5ip]
@@ -101,7 +100,6 @@
              {:style "min-width: 90px;" :data-btn "true"}
              [:div#run-button
               "Run"]]]
-
            [:div._2rMsW52-vRt_jDn9YIoIoj
             [:span._2ieC2TsGV0VNSmeBczgbwo "⌘(Ctrl) + Enter"]
             [:div.bCD0tEslEFIV_i4IX_5ip]
