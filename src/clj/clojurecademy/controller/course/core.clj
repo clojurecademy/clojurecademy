@@ -188,11 +188,17 @@
     (update-in result [:code-body :result] (constantly (-> result :code-body :result str)))))
 
 
-(defn- print-nil-if-nil
-  [x]
-  (if (nil? x)
+(defn- print-result
+  [r]
+  (cond
+    (nil? r)
     "=> nil"
-    (str "=> " x)))
+
+    (lazy? r)
+    (str "=> " (pr-str r))
+
+    :else
+    (str "=> " r)))
 
 (defn- print-new-line-if-needed
   [x]
@@ -209,8 +215,8 @@
                        (reduce
                          (fn [v r]
                            (if (str/blank? (:str r))
-                             (conj v (str (print-nil-if-nil (:result r)) "\n\n"))
-                             (conj v (str (print-new-line-if-needed (:str r)) (print-nil-if-nil (:result r)) "\n\n"))))
+                             (conj v (str (print-result (:result r)) "\n\n"))
+                             (conj v (str (print-new-line-if-needed (:str r)) (print-result (:result r)) "\n\n"))))
                          [] (:results result)))
        :err-str (:err-str result)})))
 
