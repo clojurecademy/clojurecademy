@@ -194,6 +194,11 @@
                  (load-deps)
                  (generate-repl-fns body-form)))
 
+(defn- create-repl-init-code
+  []
+  (util/list-gen '(do)
+                 (load-deps)))
+
 (defn make-sandbox
   [sb-ns body-form additional-symbols]
   (sandbox (create-tester additional-symbols)
@@ -206,3 +211,10 @@
   (sandbox (secure-tester)
            :timeout 2500
            :namespace sb-helper-ns))
+
+(defn make-sandbox-for-repl
+  [sb-ns body-form]
+  (sandbox (secure-tester)
+           :timeout 2500
+           :namespace sb-ns
+           :init (create-repl-init-code)))

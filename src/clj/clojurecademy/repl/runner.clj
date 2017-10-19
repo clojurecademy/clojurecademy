@@ -11,7 +11,8 @@
             [clojure.pprint :as pp]
             [clojure.set :as set])
   (:import (java.util ArrayList)
-           (java.util.concurrent TimeoutException)))
+           (java.util.concurrent TimeoutException)
+           (java.io StringWriter)))
 
 
 (def current-executions (atom {}))
@@ -27,6 +28,13 @@
       (if (= 'ns (ffirst ns*))
         (cons ns* body)
         (cons (util/list-gen '(ns) (-> subject :ns)) body)))))
+
+
+(defn- get-repl-body-form
+  [body]
+  (if (= 'ns (and (list? (first body)) (ffirst body)))
+    body
+    (cons '(ns dummy-ns) body)))
 
 
 (defn- wrap-ex
@@ -58,9 +66,17 @@
   [code-map]
   (util/list-gen '(do)
                  (wrap-ex (deps/get-deps (:ns code-map)) "Something went wrong when installing dependencies.")
+                 ;;TODO why initial code here???!!!
                  (wrap-ex (initial-code/get-initial-code (:subject code-map)) "Something went wrong when installing initial code.")
                  (wrap-ex (java/get-java-deps (:ns code-map)) "Something went wrong when checking Java dependencies.")
                  (get-code-body-and-test-sub-ins code-map)))
+
+(defn- get-repl-sb-code-ds
+  [code-map]
+  (util/list-gen '(do)
+                 (wrap-ex (deps/get-deps (:ns code-map)) "Something went wrong when installing dependencies.")
+                 (wrap-ex (java/get-java-deps (:ns code-map)) "Something went wrong when checking Java dependencies.")
+                 (mapv #(list 'util/with-out-str-data-map %) (:body code-map))))
 
 
 (defn- check-helper-fns
@@ -132,3 +148,40 @@
       (swap! current-executions dissoc username)
       (-> (str sb-ns-prefix username) symbol remove-ns)
       (-> (str sb-helper-ns-prefix username) symbol remove-ns))))
+
+
+(defn eval-repl-code
+  [username body]
+  (try
+    (if (@current-executions username)
+      (util/runtime-ex "You have an execution going on, you can't eval multiple code at the same time!")
+      (let [_            (swap! current-executions assoc username true)
+            body-form    (get-repl-body-form (read-string (str "(\n" body "\n)")))
+            rest-of-body (rest body-form)
+            _            (rule/check-external-blacklisted-symbols rest-of-body)
+            ns-form      (first body-form)
+            sb-ns        (symbol (str sb-ns-prefix username))
+            sb           (sandbox/make-sandbox-for-repl sb-ns body-form)
+            complete-ds  (get-repl-sb-code-ds {:ns ns-form :body rest-of-body})
+            err-writer   (StringWriter.)]
+        {:results (sb complete-ds {#'*err* err-writer})
+         :err-str (str err-writer)}))
+    (catch TimeoutException e
+      (log/error (str "Eval timeout occurred. User: " username) e)
+      {:error         true
+       :exception-msg "Execution Time Out! Your code execution time took more than 2.5 seconds."})
+    (catch SecurityException e
+      (log/error (str "Bad code. User: " username) e)
+      {:error         true
+       :exception-msg (str "You can not use blacklisted functions, symbols, namespaces etc. " (util/client-exception-message e))})
+    (catch Exception e
+      (log/error (str "Eval exception occurred. User: " username) e)
+      {:error         true
+       :exception-msg (util/client-exception-message e)})
+    (catch Throwable t
+      (log/error (str "Eval throwable occurred. User: " username) t)
+      {:error         true
+       :exception-msg (util/client-exception-message t)})
+    (finally
+      (swap! current-executions dissoc username)
+      (-> (str sb-ns-prefix username) symbol remove-ns))))
