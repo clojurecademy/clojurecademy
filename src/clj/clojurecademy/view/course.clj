@@ -103,10 +103,9 @@
            [:div._2rMsW52-vRt_jDn9YIoIoj
             [:span._2ieC2TsGV0VNSmeBczgbwo "⌘(Ctrl) + Enter"]
             [:div.bCD0tEslEFIV_i4IX_5ip]
-            [:button#run-button-container._2fDy3KzGIsY8FHMg74ib-V.lx0K4MugD9fFT3l5pAqK1
-             ;#168cb1
-             {:style "min-width: 80px;background-color: #168cb1" :data-btn "true"}
-             [:div#run-button
+            [:button#repl-button-container._2fDy3KzGIsY8FHMg74ib-V.lx0K4MugD9fFT3l5pAqK122
+             {:style "min-width: 90px" :data-btn "true"}
+             [:div#repl-button
               "REPL"]]]
            [:div._2rMsW52-vRt_jDn9YIoIoj
             [:span._2ieC2TsGV0VNSmeBczgbwo "Wide Size Screen"]
@@ -152,8 +151,10 @@
         {:style
          "position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px; margin: 0px; overflow: auto;"}
         [:span.jqconsole-header [:span]]
-        [:span#console-stderr.jqconsole-stderr]
+        [:span#console-stderr.jqconsole-stderr
+         {:style "font-size:90%"}]
         [:span.jqconsole-stdout
+         {:style "font-size:90%"}
          [:div
           [:span#console-stdout]]]
         [:span.jqconsole-input

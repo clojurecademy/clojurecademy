@@ -174,10 +174,45 @@
     {:result result}))
 
 
+(defn eval-repl-code
+  [ctx]
+  (let [username (-> ctx :user :user/username)
+        _        (log/info (str "Repl Eval requested from: " username))
+        d        (resource.util/convert-data-map (:request-data ctx))]
+    {:result (course.eval/get-repl-result username (:client-code d))}))
+
+
 (defn return-execution-result
   [c]
   (let [result (:result c)]
     (update-in result [:code-body :result] (constantly (-> result :code-body :result str)))))
+
+
+(defn- print-nil-if-nil
+  [x]
+  (if (nil? x)
+    "=> nil"
+    (str "=> " x)))
+
+(defn- print-new-line-if-needed
+  [x]
+  (if (str/ends-with? x "\n")
+    x
+    (str x "\n")))
+
+(defn return-repl-execution-result
+  [c]
+  (let [result (:result c)]
+    (if (:error result)
+      result
+      {:out-str (apply str
+                       (reduce
+                         (fn [v r]
+                           (if (str/blank? (:str r))
+                             (conj v (str (print-nil-if-nil (:result r)) "\n\n"))
+                             (conj v (str (print-new-line-if-needed (:str r)) (print-nil-if-nil (:result r)) "\n\n"))))
+                         [] (:results result)))
+       :err-str (:err-str result)})))
 
 
 (defn start-course

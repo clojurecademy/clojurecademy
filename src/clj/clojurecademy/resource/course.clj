@@ -90,6 +90,14 @@
           :handle-ok course.controller/return-execution-result)
 
 
+(resource eval-repl-code
+          :put ["/eval-repl"]
+          :content-type :json
+          :auth-required? true
+          :put! course.controller/eval-repl-code
+          :handle-ok course.controller/return-repl-execution-result)
+
+
 (resource course-syllabus
           :get ["/courses/:course-id{[0-9]+}/learn/syllabus" [course-id :<< coercion/as-int]]
           :content-type :html

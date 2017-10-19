@@ -348,10 +348,25 @@
                       [:div.cssload-inner.cssload-three]])] (dom/getElement "run-button")))
 
 
+(defn show-repl-button-loading
+  []
+  (reagent/render [(fn [_]
+                     [:div.cssload-loader
+                      [:div.cssload-inner.cssload-one]
+                      [:div.cssload-inner.cssload-two]
+                      [:div.cssload-inner.cssload-three]])] (dom/getElement "repl-button")))
+
+
 (defn close-run-button-loading
   []
   (reagent/render [(fn [_]
                      [:div "Run"])] (dom/getElement "run-button")))
+
+
+(defn close-repl-button-loading
+  []
+  (reagent/render [(fn [_]
+                     [:div "REPL"])] (dom/getElement "repl-button")))
 
 
 (defn remove-all-classes
@@ -924,10 +939,46 @@
                  :finally (fn [_] (reset! code-running? false))))))
 
 
+(defn run-repl-code
+  []
+  (if (> (count @input) 30000)
+    (render-too-long-input)
+    (when-not @code-running?
+      (reset! code-running? true)
+      (clear-terminal)
+      (show-repl-button-loading)
+      (util/ajax :put "/eval-repl"
+                 :data {:client-code @input}
+                 :success (fn [l]
+                            (let [stdout (dom/getElement "console-stdout")
+                                  stderr (dom/getElement "console-stderr")]
+                              (if (:error l)
+                                (do
+                                  (open-terminal)
+                                  (reagent/render [(fn [_] [:span#console-stdout])] stdout)
+                                  (reagent/render [(fn [_] [:span#console-stderr (-> l :exception-msg)])] stderr))
+                                (do
+                                  (when (or (not (str/blank? (:out-str l))) (not (str/blank? (:err-str l))))
+                                    (open-terminal))
+                                  (reagent/render [(fn [_] [:span#console-stdout (:out-str l)])] stdout)
+                                  (reagent/render [(fn [_] [:span#console-stderr (:err-str l)])] stderr))))
+                            (close-repl-button-loading))
+                 :error (fn [{:keys [status response]}]
+                          (render-something-went-wrong (str (:error response) "(Try refreshing the page)"))
+                          (close-repl-button-loading))
+                 :finally (fn [_] (reset! code-running? false))))))
+
+
 (defn create-run-button-event
   []
   (fn [_]
     (run-code)))
+
+
+(defn create-repl-button-event
+  []
+  (fn [_]
+    (run-repl-code)))
 
 
 (defn create-next-chapter-rendered-event
@@ -960,9 +1011,10 @@
   []
   (e/listen (dom/getElement "codemirror-container") e/EventType.KEYDOWN
             (fn [e]
-              (when (and (or (.-metaKey e) (.-ctrlKey e) (.-altKey e))
-                         (= (.-keyCode e) 13))
-                (run-code))))
+              (when (and (.-altKey e) (= (.-keyCode e) 13))
+                (run-code))
+              (when (and (or (.-metaKey e) (.-ctrlKey e)) (= (.-keyCode e) 13))
+                (run-repl-code))))
   (e/listen (dom/getElement "codemirror-container") e/EventType.MOUSEDOWN
             (fn [e]
               (when (or @wide-size-screen-on? @full-size-screen-on?)
@@ -978,6 +1030,7 @@
   (util/set-event-handler! "onclick" "terminal-button" (create-terminal-event))
   (util/set-event-handler! "onclick" "learn-wide-size-button" (create-learn-wide-size-screen-event))
   (util/set-event-handler! "onclick" "run-button-container" (create-run-button-event))
+  (util/set-event-handler! "onclick" "repl-button-container" (create-repl-button-event))
   (util/set-event-handler! "onclick" "next-subject-button" (create-next-chapter-rendered-event))
   (util/set-event-handler! "onclick" "back-subject-button" (create-pre-chapter-rendered-event)))
 
