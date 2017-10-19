@@ -93,10 +93,23 @@
         [:div.editor-footer
          [:div.fcn-tabs-container
           [:div.editor-footer__buttons
-           [:button#run-button-container._2fDy3KzGIsY8FHMg74ib-V.lx0K4MugD9fFT3l5pAqK1
-            {:style "min-width: 90px;" :data-btn "true"}
-            [:div#run-button
-             "Run"]]
+
+           [:div._2rMsW52-vRt_jDn9YIoIoj
+            [:span._2ieC2TsGV0VNSmeBczgbwo "⌥(Alt) + Enter"]
+            [:div.bCD0tEslEFIV_i4IX_5ip]
+            [:button#run-button-container._2fDy3KzGIsY8FHMg74ib-V.lx0K4MugD9fFT3l5pAqK1
+             {:style "min-width: 90px;" :data-btn "true"}
+             [:div#run-button
+              "Run"]]]
+
+           [:div._2rMsW52-vRt_jDn9YIoIoj
+            [:span._2ieC2TsGV0VNSmeBczgbwo "⌘(Ctrl) + Enter"]
+            [:div.bCD0tEslEFIV_i4IX_5ip]
+            [:button#run-button-container._2fDy3KzGIsY8FHMg74ib-V.lx0K4MugD9fFT3l5pAqK1
+             ;#168cb1
+             {:style "min-width: 80px;background-color: #168cb1" :data-btn "true"}
+             [:div#run-button
+              "REPL"]]]
            [:div._2rMsW52-vRt_jDn9YIoIoj
             [:span._2ieC2TsGV0VNSmeBczgbwo "Wide Size Screen"]
             [:div.bCD0tEslEFIV_i4IX_5ip]
