@@ -35,7 +35,7 @@
 (defn form-eval
   [f coll]
   (let [sym f
-        f (resolve f)]
+        f   (resolve f)]
     {:form   (str (cons sym coll))
      :result (apply f coll)}))
 
@@ -65,8 +65,8 @@
 
 (defn client-exception-message
   [^Throwable t]
-  (let [t-map (Throwable->map t)
-        via (first (:via t-map))
+  (let [t-map  (Throwable->map t)
+        via    (first (:via t-map))
         ex-msg (:message via)]
     (format "%s" (get-err-msg ex-msg))))
 

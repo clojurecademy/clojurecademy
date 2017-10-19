@@ -159,3 +159,10 @@
   (if (-> subject :subject :instruction)
     (persist-progress-and-return-execution-result user subject d)
     (persist-progress-for-no-ins-and-return-execution-result user subject d)))
+
+
+(defn get-repl-result
+  [username code]
+  (when (> (count code) 30000)
+    (util/runtime-ex "Your input is too long, you can't evaluate more than 30.000 characters"))
+  (r/eval-repl-code username code))
