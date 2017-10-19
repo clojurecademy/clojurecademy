@@ -103,7 +103,6 @@
 
 (defn get-exception-message
   [ctx]
-  (println "A: " ctx)
   (let [e   (:exception ctx)
         msg (.getMessage e)]
     (log/error msg e)

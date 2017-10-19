@@ -20,9 +20,6 @@
   (:gen-class)
   (:import (java.io File)))
 
-;;TODO remove afterwards
-;(set! *warn-on-reflection* true)
-
 (def ignored-csrf-paths ["/course/upload"])
 
 (def resource-nses '[clojurecademy.resource.auth
@@ -37,7 +34,6 @@
                  (wrap-anti-forgery {:ignored-paths ignored-csrf-paths})
                  (wrap-multipart-params {:max-file-size 11000000})
                  wrap-params
-                 ;;TODO add basic auth middleware
                  (wrap-defaults (dissoc (dissoc site-defaults :security :anti-forgery) :params :multipart))
                  wrap-exceptions
                  wrap-reload
@@ -47,7 +43,6 @@
   []
   (conf/init!)
   (db/create-db!))
-
 
 (defn start
   [port]
