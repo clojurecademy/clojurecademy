@@ -89,7 +89,10 @@
 
        [:section._2zSA2d9oAw82vmGaiCI6HM._1KKDVD6unnpNtKqV9PPUQP
         [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
-         {:data-reactid "10"}
+         [:a._1le84AU2Tvn8hDQEBK-7LY._5VTI96d-hitjuNGCfLO6X._2kwp78w4gxSQjvTSajoa6Q
+          {:href "/clojure-jobs"} "Jobs"]]
+
+        [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
          [:a._1le84AU2Tvn8hDQEBK-7LY._5VTI96d-hitjuNGCfLO6X._2kwp78w4gxSQjvTSajoa6Q
           {:href "/courses"} "Courses"]]
 
@@ -118,9 +121,9 @@
       :non-selected non-selected)))
 
 (defn- header-logged-in
-  ([learn-selecion course-selection]
-   (header-logged-in :narrow learn-selecion course-selection))
-  ([type learn-selecion course-selection]
+  ([jobs-selection learn-selection course-selection]
+   (header-logged-in :narrow jobs-selection learn-selection course-selection))
+  ([type jobs-selection learn-selection course-selection]
    [:header._2m_hDXMtwvETHFo3eGaTXE
     [(get-nav-bar type)
      [:section._2zSA2d9oAw82vmGaiCI6HM.vE2U5Z1_1p0OevhTkRrpb
@@ -129,9 +132,9 @@
         [:img._39eW0wHuW9g7pG5q6TF7cE {:src "/img/logo.svg", :alt "Codecademy logo"}]]]]
      [:section._2zSA2d9oAw82vmGaiCI6HM._1KKDVD6unnpNtKqV9PPUQP
       [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
-       [(get-selection-style learn-selecion) {:href "/clojure-jobs"} "Jobs"]]
+       [(get-selection-style jobs-selection) {:href "/clojure-jobs"} "Jobs"]]
       [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
-       [(get-selection-style learn-selecion) {:href "/courses/learn"} "Learn"]]
+       [(get-selection-style learn-selection) {:href "/courses/learn"} "Learn"]]
       [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
        [(get-selection-style course-selection) {:href "/courses"} "Courses"]]
       [:a {:href "/account"}
@@ -146,9 +149,10 @@
    (header nil))
   ([option]
    (case option
-     :learn (header-logged-in :wide :selected :non-selected)
-     :course (header-logged-in :wide :non-selected :selected)
-     :logged-in (header-logged-in :non-selected :non-selected)
+     :jobs (header-logged-in :wide :selected :non-selected :non-selected)
+     :learn (header-logged-in :wide :non-selected :selected :non-selected)
+     :course (header-logged-in :wide :non-selected :non-selected :selected)
+     :logged-in (header-logged-in :non-selected :non-selected :non-selected)
      :non-logged-in-narrow (header-non-logged-in)
      :non-logged-in-wide (header-non-logged-in :wide)
      (header-non-logged-in))))

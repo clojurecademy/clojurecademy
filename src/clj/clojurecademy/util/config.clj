@@ -26,6 +26,8 @@
   []
   (if @clojure-jobs
     @clojure-jobs
-    (doseq [[path uris] (cp/resources (io/resource "clojure-jobs.edn"))
-            :let [uri (first uris)]]
-      (reset! clojure-jobs (read-string (slurp (str uri)))))))
+    (do
+      (doseq [[path uris] (cp/resources (io/resource "clojure-jobs.edn"))
+              :let [uri (first uris)]]
+        (reset! clojure-jobs (read-string (slurp (str uri)))))
+      @clojure-jobs)))

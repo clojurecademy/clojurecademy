@@ -19,7 +19,9 @@
   [package]
   (str "mailto:jobs@clojurecademy.com?"
        "subject=Purchase%20" (:name package) "%20Package"
-       "&body=Hi%20There!%0D%0APlease%20fill%20the%20following%20information%20above%20then%20purchase%20package%20from%20"
+       "&body=Hi%20There!%0D%0APlease%20fill%20the%20following%20fields%20above"
+       "(also%20you%20can%20attach%20an%20existing%20job%20description%20document)"
+       "%20then%20purchase%20package%20from%20"
        (:link package) "%0D%0A" "%0D%0A"
        "Job%20Title:" "%0D%0A" "%0D%0A"
        "Job%20Type(permanent,%20contract,%20unspecified):" "%0D%0A" "%0D%0A"
@@ -38,7 +40,7 @@
   [auth?]
   (view.common/full-html
     "Clojure Job Posting Plans"
-    (view.common/header (if auth? :course :non-logged-in-wide))
+    (view.common/header (if auth? :jobs :non-logged-in-wide))
     [:div
      [:div._1rAxWTzJWa6aEYjrnUdya
       [:span {:style "position: relative;"}]
@@ -157,7 +159,7 @@
   [auth?]
   (view.common/full-html
     "Clojure Jobs"
-    (view.common/header (if auth? :course :non-logged-in-wide))
+    (view.common/header (if auth? :jobs :non-logged-in-wide))
     [:div
      [:div._1rAxWTzJWa6aEYjrnUdya
       [:span {:style "position: relative;"}]
@@ -201,3 +203,15 @@
             [:div._1TlackAU2XUAy3_AeDmSP0
              [:div.Y1w9vprpw1N8chvfIrbyI "Post a Job"]
              [:div "You can contribute to Clojurecademy by purchasing Job Ads"]]]]]]]]]]))
+
+
+(defn job-page
+  [auth? job]
+  (view.common/full-html
+    "Clojure Jobs"
+    (view.common/header (if auth? :jobs :non-logged-in-wide))
+    [:main.site.tos
+     [:div.fit-fixed
+      [:div.grid-row
+       [:article.grid-col-12.grid-col--center.padding-bottom--5.tos
+        (read-string (:description job))]]]]))
