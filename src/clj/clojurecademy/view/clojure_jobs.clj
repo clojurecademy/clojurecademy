@@ -208,7 +208,7 @@
 (defn job-page
   [auth? job]
   (view.common/full-html
-    "Clojure Jobs"
+    (str (:title job) " - Clojure Jobs")
     (view.common/header (if auth? :jobs :non-logged-in-wide))
     [:main.site.tos
      [:div.fit-fixed
