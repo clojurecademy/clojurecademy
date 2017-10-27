@@ -25,7 +25,8 @@
 (def resource-nses '[clojurecademy.resource.auth
                      clojurecademy.resource.course
                      clojurecademy.resource.home
-                     clojurecademy.resource.user])
+                     clojurecademy.resource.user
+                     clojurecademy.resource.clojure-jobs])
 
 (def not-found-symbol 'clojurecademy.resource.home/not-found)
 

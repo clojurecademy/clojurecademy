@@ -1,0 +1,16 @@
+[
+ {:title                  "Clojure Developer"
+  :type                   "Permanent"                       ;contract, unspecified
+  :compensation           "$75,000 - $95,000"
+  :description            "Bla Bla Bla....."
+  :location               "Istanbul, Turkey"
+  :remote?                false
+  :company-name           "TalentAds"
+  :logo-url               "https://ss"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Cool company ever"
+  :endpoint               "talentads-clojure-developer"
+  :created-time           1509087450329
+  :active?                true
+  }
+ ]
