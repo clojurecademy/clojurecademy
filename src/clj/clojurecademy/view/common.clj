@@ -129,6 +129,8 @@
         [:img._39eW0wHuW9g7pG5q6TF7cE {:src "/img/logo.svg", :alt "Codecademy logo"}]]]]
      [:section._2zSA2d9oAw82vmGaiCI6HM._1KKDVD6unnpNtKqV9PPUQP
       [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
+       [(get-selection-style learn-selecion) {:href "/clojure-jobs"} "Jobs"]]
+      [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
        [(get-selection-style learn-selecion) {:href "/courses/learn"} "Learn"]]
       [:div._3bI54mnYg5essxyEwnBsko._3nDVtg6dS-0_R6p0nDL-1S.NiKQEilPGVQiLL-faXn41
        [(get-selection-style course-selection) {:href "/courses"} "Courses"]]

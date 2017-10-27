@@ -3,7 +3,13 @@
             [clojurecademy.view.clojure-jobs :as view.clojure-jobs]))
 
 
-(resource jobs
+(resource plans
           :get ["/clojure-job-plans"]
           :content-type :html
-          :handle-ok #(view.clojure-jobs/html (-> % resource.util/authorized? :user boolean)))
+          :handle-ok #(view.clojure-jobs/plans (-> % resource.util/authorized? :user boolean)))
+
+
+(resource jobs
+          :get ["/clojure-jobs"]
+          :content-type :html
+          :handle-ok #(view.clojure-jobs/jobs (-> % resource.util/authorized? :user boolean)))

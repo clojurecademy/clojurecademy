@@ -1,16 +1,103 @@
 [
  {:title                  "Clojure Developer"
-  :type                   "Permanent"                       ;contract, unspecified
-  :compensation           "$75,000 - $95,000"
   :description            "Bla Bla Bla....."
+  :type                   "Permanent"
   :location               "Istanbul, Turkey"
-  :remote?                false
+  :compensation           "$75,000 - $95,000"
   :company-name           "TalentAds"
-  :logo-url               "https://ss"
   :company-url            "https://aa"
   :company-elevator-pitch "Cool company ever"
+  :remote?                false
+  :logo                   {:url   "https://s3.amazonaws.com/cljobs-production/logos/1507561798219-G__3403757/detail"
+                           :width nil :height nil}
   :endpoint               "talentads-clojure-developer"
   :created-time           1509087450329
+  :package                :starter
+  :active?                true
+  }
+
+ {:title                  "Senior Clojure Developer"
+  :description            "Bla Bla Bla....."
+  :type                   "Permanent"
+  :location               "NYC, US"
+  :compensation           nil
+  :company-name           "Clojurecademy"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Provides Clojure based courses for free."
+  :remote?                false
+  :logo                   {:url   "https://avatars3.githubusercontent.com/u/24807614?s=200&v=4"
+                           :width "140px" :height "140px"}
+  :endpoint               "clojurecademy-senior-clojure-developer"
+  :created-time           1509087450400
+  :package                :standard
+  :active?                true
+  }
+
+ {:title                  "Data Scientist"
+  :description            "Bla Bla Bla....."
+  :type                   "Permanent"
+  :location               "Berlin, Germany"
+  :compensation           "€35,000 - €55,000"
+  :company-name           "Wuzii"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Cool AI and stuff like that bro."
+  :remote?                false
+  :logo                   {:url   "https://s3.amazonaws.com/cljobs-production/logos/1507644472220-G__3418753/detail"
+                           :width nil :height nil}
+  :endpoint               "wuzii-senior-clojure-developer"
+  :created-time           1509087450400
+  :package                :advanced
+  :active?                true
+  }
+
+ {:title                  "Clojure Guru"
+  :description            "Bla Bla Bla....."
+  :type                   "Permanent"
+  :location               "Sofia, Bulgaria"
+  :compensation           nil
+  :company-name           "Pekiii"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Clojure works...."
+  :remote?                false
+  :logo                   {:url   "https://s3.amazonaws.com/cljobs-production/logos/1507142752293-G__3349960/detail"
+                           :width nil :height nil}
+  :endpoint               "guru-senior-clojure-developer"
+  :created-time           1509087450401
+  :package                :premium
+  :active?                true
+  }
+
+ {:title                  "Junior Clojure Developer"
+  :description            "Bla Bla Bla....."
+  :type                   "Permanent"
+  :location               "San Fransisco"
+  :compensation           nil
+  :company-name           "Lolita"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Cool stuff and and and adn"
+  :remote?                false
+  :logo                   {:url   "https://s3.amazonaws.com/cljobs-production/logos/1506973099832-G__3324109/detail"
+                           :width "125px" :height "125px"}
+  :endpoint               "guru-senior-clojure-developer"
+  :created-time           1509087450402
+  :package                :sponsorship
+  :active?                true
+  }
+
+ {:title                  "Clojurist"
+  :description            "Bla Bla Bla....."
+  :type                   "Permanent"
+  :location               "Ankara, Turkey"
+  :compensation           nil
+  :company-name           "AngaraWorks"
+  :company-url            "https://aa"
+  :company-elevator-pitch "Lan bebe"
+  :remote?                false
+  :logo                   {:url   "https://s3.amazonaws.com/cljobs-production/logos/1505378757715-G__3043108/detail"
+                           :width nil :height nil}
+  :endpoint               "angara-clojure-developer"
+  :created-time           1509087450555
+  :package                :premium
   :active?                true
   }
  ]
