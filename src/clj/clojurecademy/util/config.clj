@@ -5,6 +5,7 @@
 
 
 (def conf (atom nil))
+(def clojure-jobs (atom nil))
 
 
 (defn init!
@@ -19,3 +20,14 @@
   (if (seq ks)
     (get-in @conf ks)
     @conf))
+
+
+(defn get-clojure-jobs!
+  []
+  (if @clojure-jobs
+    @clojure-jobs
+    (do
+      (doseq [[path uris] (cp/resources (io/resource "clojure-jobs.edn"))
+              :let [uri (first uris)]]
+        (reset! clojure-jobs (read-string (slurp (str uri)))))
+      @clojure-jobs)))
