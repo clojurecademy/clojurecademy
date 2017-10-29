@@ -62,10 +62,6 @@
     [:title (get-title title)]
     [:link {:type "image/x-icon" :rel "shortcut icon" :href "/img/fav.ico"}]
     [:meta {:content "width=device-width, initial-scale=1.0" :name "viewport"}]
-    [:meta {:content (str "Clojurecademy is like Codecademy that focuses only Clojure and its ecosystem, "
-                          "it teaches Clojure programming language or anything related to "
-                          "programming in general(e.g. Algorithms & Data Structures to Code Koans/Katas in Clojure) interactively.")
-            :name    "description"}]
     [:meta {:content "clojurecademy, clojure, clojurescript, lisp, functional programming, coding, code, programming, clojure jobs", :name "keywords"}]
     [:meta {:content "website" :property "og:type"}]
     (include-css "/css/core.css" "/css/show.css" "/css/vendor.css" "/css/portal.css")]))
@@ -171,6 +167,8 @@
      [:small
       [:span
        [:a {:href "/clojure-jobs"} "Clojure Jobs"]]
+      [:span
+       [:a {:href "/courses"} "Courses"]]
       [:span
        [:a {:href "/about"} "About"]]
       [:span
