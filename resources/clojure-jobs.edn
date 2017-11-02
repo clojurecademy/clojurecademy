@@ -1,1 +1,17 @@
-[]
+[
+ {:title                  "Clojure/Datomic Developer"
+  :description            "[:div\n         [:h2 \"Clojure/Datomic Developer\"]\n\n         [:p\n          \"Contractors anywhere in the US, Work hours are US Eastern Time\"]\n\n         [:p \"Have you been using your Clojure skills in a distributed systems setting? Do you have experience with Datomic? \"\n          [:strong \"Or do you have plenty of database experience with a keen interest in Datomic?\"]]\n\n         [:p \"If you answered yes to these questions and have a history of making an impact on a wide range of consulting engagements, we want to talk to you! Cognitect, Inc. is currently looking for contractors who are passionate about working with a company that is committed to encouraging creative thought and providing solutions that make life better for individuals and the communities in which they live. Come be a part of something growing, special and fun!\"]\n\n         [:p \"At Cognitect, we strongly believe diversity and a culture of inclusiveness have a positive impact on our company and our world. We are seeking applicants of diverse backgrounds across all roles at the company. Cognitect is an equal opportunity employer and hires without regard to race, religion, gender, sexual orientation, national origin, age, veteran or disabled status, ancestry, or any other protected class.\"]\n\n         [:p \"Work Hours - US Eastern Time. 9AM ~ 5PM Eastern Time (+/- 1 hour okay). Eastern Time zone is 5 hours behind GMT or during Daylight-Saving Time is 4 hours behind GMT.\"]\n\n         [:p\n          {:style \"font-style:italic\"}\n          \"No recruiters, principals only.\"]\n\n         [:div._3l5vJxhTbS1dLnkuNf4EaO.CGAmiC7XFUbztkDJDC6gJ._2tEfM0IkMaX9GwzuRYnX2b\n          [:a._2fDy3KzGIsY8FHMg74ib-V._2bwYMUTOYpw6i1TbVOJS4A._1mQgyp76JXoCrTvLgR_p-d\n           {:style \"min-width:100px;color:#00adff;border-color:#00adff\" :href \"mailto:jobs@cognitect.com\"}\n           \"Apply\"]]\n         ]"
+  :type                   "Permanent"
+  :location               "USA"
+  :compensation           nil
+  :company-name           "Cognitect"
+  :company-url            "https://cognitect.com"
+  :company-elevator-pitch "We strongly believe diversity and a culture of inclusiveness have a positive impact on our company and our world."
+  :remote?                false
+  :logo                   {:url "https://cognitect.com/images/cognitect-logo-horizontal.svg" :width "250px" :height "75px"}
+  :endpoint               "cognitect-clojure-datomic-developer"
+  :created-time           1509087450329
+  :package                :premium
+  :active?                true
+  }
+ ]
