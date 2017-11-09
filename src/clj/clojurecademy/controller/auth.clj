@@ -209,9 +209,7 @@
 (defn invalid-activation-key-dispatcher
   [username activation-key]
   (let [[error? _] (invalid-reset-pass-activation-key-dispatcher username activation-key)
-        already-active? (if (-> username user.dao/find-user-by-username :user/email-activated?)
-                          true
-                          false)]
+        already-active? (-> username user.dao/find-user-by-username :user/email-activated? boolean)]
     [(or error? already-active?) "/"]))
 
 
