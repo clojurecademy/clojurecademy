@@ -8,8 +8,7 @@
 ;;TODO Don't forget to change full-html head meta datas!!!!
 ;;TODO fix Course selected
 
-(def packages {:starter     {:name "Starter" :link "https://pay.paddle.com/checkout/519754"}
-               :standard    {:name "Standard" :link "https://pay.paddle.com/checkout/519756"}
+(def packages {:standard    {:name "Standard" :link "https://pay.paddle.com/checkout/519756"}
                :advanced    {:name "Advanced" :link "https://pay.paddle.com/checkout/519757"}
                :premium     {:name "Premium" :link "https://pay.paddle.com/checkout/519758"}
                :sponsorship {:name "Sponsorship" :link "https://pay.paddle.com/checkout/519759"}})
@@ -61,33 +60,17 @@
         [:div._9eQUodKoyDfzljPjd3uUv
          [:span
           [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
-           {:href (package->mailto (:starter packages))}
-           [:div._2H7I4SklrPHUaMJgIYxiFH._1naCNmn3BaYUQ5ZMt297ht
-            [:div._1TlackAU2XUAy3_AeDmSP0
-             {:style "height:14rem"}
-             [:div.Y1w9vprpw1N8chvfIrbyI "Starter"]
-             [:div "60 Day Job Listing"]
-             [:div "Posting Tweets"]
-             [:div "Email alert sent to thousands of candidates"]]
-            [:div._1XRkeRcO7hh1axYhmKiQMM.tkzWKCisgMvVwAnypX-jp._39K0C3ph1hpmLw6tsBfNnG.GEk9Sbt3OmLggMB2aQtSj._1LqddMNwj5jKijAxFVxWQ2
-             [:div
-              [:div {:style "font-size: 25px"}
-               "$129"]]]]]]]
-        [:div._9eQUodKoyDfzljPjd3uUv
-         [:span
-          [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
            {:href (package->mailto (:standard packages))}
            [:div._2H7I4SklrPHUaMJgIYxiFH._1naCNmn3BaYUQ5ZMt297ht
             [:div._1TlackAU2XUAy3_AeDmSP0
              {:style "height:14rem"}
              [:div.Y1w9vprpw1N8chvfIrbyI "Standard"]
-             [:div "120 Day Job Listing"]
-             [:div "Posting Tweets"]
-             [:div "Email alert sent to thousands of candidates"]]
+             [:div "90 Day Job Listing"]
+             [:div "Posting Tweets"]]
             [:div._1XRkeRcO7hh1axYhmKiQMM.tkzWKCisgMvVwAnypX-jp._39K0C3ph1hpmLw6tsBfNnG.GEk9Sbt3OmLggMB2aQtSj._1LqddMNwj5jKijAxFVxWQ2
              [:div
               [:div {:style "font-size: 25px"}
-               "$249"]]]]]]]
+               "$199"]]]]]]]
         [:div._9eQUodKoyDfzljPjd3uUv
          [:span
           [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
@@ -96,14 +79,15 @@
             [:div._1TlackAU2XUAy3_AeDmSP0
              {:style "height:14rem"}
              [:div.Y1w9vprpw1N8chvfIrbyI "Advanced"]
-             [:div "240 Day Job Listing"]
+             [:div "90 Day Job Listing"]
              [:div "Posting Tweets"]
-             [:div "Email alert sent to thousands of candidates"]
-             [:div "Highlighted listing"]]
+             [:div "Email alert sent to thousands of candidates"]]
             [:div._1XRkeRcO7hh1axYhmKiQMM.tkzWKCisgMvVwAnypX-jp._39K0C3ph1hpmLw6tsBfNnG.GEk9Sbt3OmLggMB2aQtSj._1LqddMNwj5jKijAxFVxWQ2
              [:div
               [:div {:style "font-size: 25px"}
-               "$479"]]]]]]]
+               "$239"]
+              [:div {:style "font-size: 25px;text-decoration: line-through;color:red"}
+               "$300"]]]]]]]
         [:div._9eQUodKoyDfzljPjd3uUv
          [:span
           [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
@@ -112,7 +96,7 @@
             [:div._1TlackAU2XUAy3_AeDmSP0
              {:style "height:14rem"}
              [:div.Y1w9vprpw1N8chvfIrbyI "Premium"]
-             [:div "365 Day Job Listing"]
+             [:div "90 Day Job Listing"]
              [:div "Posting Tweets"]
              [:div "Email alert sent to thousands of candidates"]
              [:div "Highlighted listing"]
@@ -120,7 +104,9 @@
             [:div._1XRkeRcO7hh1axYhmKiQMM.tkzWKCisgMvVwAnypX-jp._39K0C3ph1hpmLw6tsBfNnG.GEk9Sbt3OmLggMB2aQtSj._1LqddMNwj5jKijAxFVxWQ2
              [:div
               [:div {:style "font-size: 25px"}
-               "$699"]]]]]]]
+               "$299"]
+              [:div {:style "font-size: 25px;text-decoration: line-through;color:red"}
+               "$359"]]]]]]]
         [:div._9eQUodKoyDfzljPjd3uUv
          [:span
           [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
@@ -129,18 +115,18 @@
             [:div._1TlackAU2XUAy3_AeDmSP0
              {:style "height:14rem"}
              [:div.Y1w9vprpw1N8chvfIrbyI "Sponsorship"]
+             [:div "365 Day Job Listing"]
              [:div "+Premium Package"]
              [:div "Your company logo will be featured in one of the courses and sponsors page"]]
             [:div._1XRkeRcO7hh1axYhmKiQMM.tkzWKCisgMvVwAnypX-jp._39K0C3ph1hpmLw6tsBfNnG.GEk9Sbt3OmLggMB2aQtSj._1LqddMNwj5jKijAxFVxWQ2
              [:div
               [:div {:style "font-size: 25px"}
-               "$2499"]]]]]]]]]]]))
+               "$599"]]]]]]]]]]]))
 
 
 (defn- key->val
   [package]
   (case package
-    :starter 1
     :standard 1
     :advanced 1
     :premium 2
@@ -175,7 +161,7 @@
 
         (for [job (get-jobs)]
           [:div._9eQUodKoyDfzljPjd3uUv
-           {:style (when (#{:advanced :premium :sponsorship} (:package job)) "box-shadow: 5px 6px 21px -2px rgba(0, 145, 255, 0.84);")}
+           {:style (when (#{:premium :sponsorship} (:package job)) "box-shadow: 5px 6px 21px -2px rgba(0, 145, 255, 0.84);")}
            [:span
             [:a._1qDNbq8Z4KbMrFkW-w9Q8Y
              {:href (str "/clojure-jobs/" (:endpoint job))}

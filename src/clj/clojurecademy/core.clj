@@ -56,4 +56,4 @@
   (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
     (start port)))
 
-(init!)
+;(init!)

@@ -26,6 +26,21 @@
   :logo                   {:url "https://s3.amazonaws.com/clojurecademy-jobs-company-logos/status_logo_1.png" :width "140px" :height "140px"}
   :endpoint               "status-software-engineer-clojure"
   :created-time           1510237765703
-  :package                :starter
+  :package                :standard
+  :active?                true}
+
+ {:title                  "Senior Engineer (Clojure, Datomic, Clojurescript)"
+  :description            "[:div\n\n         [:h2 \"Senior Engineer (Clojure, Datomic, Clojurescript)\"]\n         [:br]\n         [:h3 \"What is Fy!\"]\n         [:p \"Fy! is a new kind of shopping platform that helps you discover products you love, via a visual and serendipitous shopping experience.\"]\n         [:p \"We are a small, but passionate team backed by some of Europe’s savviest investors, working to build something huge.\"]\n         [:br]\n         [:h3 \"Opportunity\"]\n         [:p \"We’re looking for two awesome developers, with a passion for developing simple, reliable and well-tested code. This is an opportunity to join an early-stage company that’s growing rapidly, and take responsibility early on.\"]\n         [:p \"Our iOS app and internal systems are built from the ground up using Clojure(script) and Datomic. The kinds of technical challenges we are taking on range from real-time recommendation to innovative shopping experiences such as customisation and AR.\"]\n         [:br]\n         [:h3 \"Role & Responsibilities\"]\n         [:ul\n          [:li \"Design, develop and test new features across our systems: eCom, search, recommendation, notifications, supplier platform and reporting\"]\n          [:li \"Develop backend services using Clojure, Datomic and GraphQL\"]\n          [:li \"Build end-to-end tested frontends in Clojurescript using Om Next and our in-house UI component library\"]\n          [:li \"Maintain and deploy services via AWS and Kubernetes\"]\n          [:li \"Deliver load time and responsiveness improvements to our users\"]\n          [:li \"Manage technical debt and make improvements to the existing codebase\"]]\n         [:br]\n         [:h3 \"Requirements\"]\n         [:ul\n          [:li \"2+ years of relevant Clojure or Clojurescript experience\"]\n          [:li \"Deep experience in developing on either the JVM on in the browser\"]\n          [:li \"Flexibility and adaptability to work in a fast-paced startup\"]\n          [:li \"A passion for delivering benefits and solving pain-points for customers\"]\n          [:li \"Experience with Datomic, React, React Native and GraphQL are all bonus points\"]\n          [:li \"A dedication to good software development practices\"]\n          [:li \"Good communication skills (in English)\"]]\n\n         [:br]\n         [:p {:style \"font-style:italic\"} \"Send resume and cover email to \" [:a {:href  \"mailto:jobs@iamfy.co\"\n                                                                                 :style \"text-decoration: underline\"} \"jobs@iamfy.co\"]]\n\n         [:div._3l5vJxhTbS1dLnkuNf4EaO.CGAmiC7XFUbztkDJDC6gJ._2tEfM0IkMaX9GwzuRYnX2b\n          [:a._2fDy3KzGIsY8FHMg74ib-V._2bwYMUTOYpw6i1TbVOJS4A._1mQgyp76JXoCrTvLgR_p-d\n           {:style \"min-width:100px;color:#00adff;border-color:#00adff\" :href \"mailto:jobs@iamfy.co\"}\n           \"Apply\"]]\n         ]"
+  :type                   "Permanent"
+  :location               "Berlin, Germany"
+  :compensation           "$70k - $90k"
+  :company-name           "Fy!"
+  :company-url            "http://www.iamfy.co"
+  :company-elevator-pitch "We are passionate about using technology to help people discover things they love."
+  :remote?                true
+  :logo                   {:url "https://s3.amazonaws.com/clojurecademy-jobs-company-logos/FY_Logo_Red_RGB.png" :width "140px" :height "140px"}
+  :endpoint               "fy-senior-engineer-clojure-datomic-clojurescript"
+  :created-time           1511992492045
+  :package                :standard
   :active?                true}
  ]
