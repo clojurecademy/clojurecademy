@@ -20,9 +20,11 @@ Would skip repository clojurecademy/
 env/
 *.asc
 temp.clj
+maill.clj
 *.zip
 .DS_Store
 deployment
 resources/config.edn
 resources/logback.xml
+resources/mails.edn
 DEPLOYMENT-STEPS.txt

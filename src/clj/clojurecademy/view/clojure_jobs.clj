@@ -18,7 +18,7 @@
   [package]
   (str "mailto:jobs@clojurecademy.com?"
        "subject=Purchase%20" (:name package) "%20Package"
-       "&body=Hi%20There!%0D%0APlease%20fill%20the%20following%20fields%20above"
+       "&body=Hi%20There!%0D%0APlease%20fill%20the%20following%20fields%20below"
        "(also%20you%20can%20attach%20an%20existing%20job%20description%20document)"
        "%20then%20purchase%20package%20from%20"
        (:link package) "%0D%0A" "%0D%0A"
