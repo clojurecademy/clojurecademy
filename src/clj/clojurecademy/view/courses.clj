@@ -21,7 +21,7 @@
     "All Courses"
     (view.common/header (if auth? :course :non-logged-in-wide))
     [:div
-     [:div._1rAxWTzJWa6aEYjrnUdya
+     [:div._17S6vVdEJfvMGdpWLenGHU
       [:span {:style "position: relative;"}]
       [:div._1YGSFNfaFzXho9TQuUZGUL
        {:style "opacity: 1;"}

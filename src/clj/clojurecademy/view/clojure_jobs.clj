@@ -41,7 +41,7 @@
     "Clojure Job Posting Plans"
     (view.common/header (if auth? :jobs :non-logged-in-wide))
     [:div
-     [:div._1rAxWTzJWa6aEYjrnUdya
+     [:div._17S6vVdEJfvMGdpWLenGHU
       [:span {:style "position: relative;"}]
       [:div._1YGSFNfaFzXho9TQuUZGUL
        {:style "opacity: 1;"}
@@ -147,7 +147,7 @@
     "Clojure Jobs"
     (view.common/header (if auth? :jobs :non-logged-in-wide))
     [:div
-     [:div._1rAxWTzJWa6aEYjrnUdya
+     [:div._17S6vVdEJfvMGdpWLenGHU
       [:span {:style "position: relative;"}]
       [:div._1YGSFNfaFzXho9TQuUZGUL
        {:style "opacity: 1;"}
