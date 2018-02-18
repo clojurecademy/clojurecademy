@@ -32,7 +32,7 @@
 
 (defn resume-course
   [ctx course-id]
-  (let [user    (:user ctx)
+  (let [user (:user ctx)
         user-id (:db/id user)]
     (log/info (str "User: " (:user/username user) " resuming course."))
     (cond
@@ -50,7 +50,7 @@
 
 (defn release-course
   [ctx course-id]
-  (let [user    (:user ctx)
+  (let [user (:user ctx)
         user-id (:db/id user)]
     (log/info (str "User: " (:user/username user) " releasing course."))
     (cond
@@ -71,8 +71,8 @@
 (defn resume-sub-chapter
   [ctx sub-chapter-id]
   (let [course-id (course.dao/find-course-id-by-sub-chapter-id-non-active-also sub-chapter-id)
-        user      (:user ctx)
-        user-id   (:db/id user)
+        user (:user ctx)
+        user-id (:db/id user)
         release-t (some->> course-id (course.common/get-release user-id))]
     (log/info (str "User: " (:user/username user) " resuming course via sub chapter."))
     (cond
@@ -93,8 +93,8 @@
 (defn subject
   [ctx subject-id]
   (let [course-id (course.dao/find-course-id-by-subject-id-non-active-also subject-id)
-        user      (:user ctx)
-        user-id   (:db/id user)
+        user (:user ctx)
+        user-id (:db/id user)
         release-t (some->> course-id (course.common/get-release user-id))]
     (log/info (str "User: " (:user/username user) " resuming course via subject."))
     (cond
@@ -118,8 +118,8 @@
 (defn next-subject
   [ctx subject-id]
   (let [course-id (course.dao/find-course-id-by-subject-id-non-active-also subject-id)
-        user      (:user ctx)
-        user-id   (:db/id user)
+        user (:user ctx)
+        user-id (:db/id user)
         release-t (some->> course-id (course.common/get-release user-id))]
     (log/info (str "User: " (:user/username user) " requested next subject."))
     (cond
@@ -143,8 +143,8 @@
 (defn pre-subject
   [ctx subject-id]
   (let [course-id (course.dao/find-course-id-by-subject-id-non-active-also subject-id)
-        user      (:user ctx)
-        user-id   (:db/id user)
+        user (:user ctx)
+        user-id (:db/id user)
         release-t (some->> course-id (course.common/get-release user-id))]
     (log/info (str "User: " (:user/username user) " requested pre subject."))
     (cond
@@ -162,23 +162,23 @@
 
 (defn eval-code
   [ctx]
-  (let [user               (:user ctx)
-        _                  (log/info (str "Eval requested from: " (:user/username user)))
-        d                  (resource.util/convert-data-map (:request-data ctx))
-        subject-id         (:subject-id d)
-        course-id          (course.dao/find-course-id-by-subject-id-non-active-also subject-id)
-        release-t          (course.common/get-release (:db/id user) course-id)
+  (let [user (:user ctx)
+        _ (log/info (str "Eval requested from: " (:user/username user)))
+        d (resource.util/convert-data-map (:request-data ctx))
+        subject-id (:subject-id d)
+        course-id (course.dao/find-course-id-by-subject-id-non-active-also subject-id)
+        release-t (course.common/get-release (:db/id user) course-id)
         subject-and-childs (subject.dao/collect-subject-and-childs release-t subject-id)
-        subject            (course.eval/create-subject-structure subject-and-childs)
-        result             (course.eval/get-result user subject d)]
+        subject (course.eval/create-subject-structure subject-and-childs)
+        result (course.eval/get-result user subject d)]
     {:result result}))
 
 
 (defn eval-repl-code
   [ctx]
   (let [username (-> ctx :user :user/username)
-        _        (log/info (str "Repl Eval requested from: " username))
-        d        (resource.util/convert-data-map (:request-data ctx))]
+        _ (log/info (str "Repl Eval requested from: " username))
+        d (resource.util/convert-data-map (:request-data ctx))]
     {:result (course.eval/get-repl-result username (:client-code d))}))
 
 
@@ -226,7 +226,7 @@
   (if (or (not (course.dao/find-course-name-by-course-id course-id))
           (not (course.dao/find-course-released?-by-course-id course-id)))
     (util/runtime-ex "Course does not exist or has not released yet.")
-    (let [user-id  (-> ctx :user :db/id)
+    (let [user-id (-> ctx :user :db/id)
           username (user.dao/find-username-by-user-id user-id)]
       (course.dao/enroll-user-to-course course-id user-id)
       (log/info (str username " started course id: " course-id)))))
@@ -276,7 +276,7 @@
 
 (defn get-all-courses-for-user
   [user-id]
-  (let [courses                 (sort-by-user-counts-desc (course.dao/find-all-released-courses))
+  (let [courses (sort-by-user-counts-desc (course.dao/find-all-released-courses))
         courses-with-percentage (course.learn/get-enrolled-courses user-id)]
     (reduce (fn [v course]
               (if-let [percentage (some #(when (= (:course-id %) (first course)) (:course-percentage %)) courses-with-percentage)]
@@ -327,8 +327,8 @@
 (defn- persist-course-and-helper-fns
   [username-or-email course helper-fns]
   (try
-    (let [user      (user.dao/find-user-by-username-or-email username-or-email)
-          owner     (:user/username user)
+    (let [user (user.dao/find-user-by-username-or-email username-or-email)
+          owner (:user/username user)
           course-id (db/persist-course course owner)]
       (db/transact {:db/id                course-id
                     :course/helper-fns    (if (seq helper-fns)
@@ -352,9 +352,9 @@
 
 (defn- check-auth
   [ctx]
-  (let [headers           (-> ctx :request :headers)
+  (let [headers (-> ctx :request :headers)
         username-or-email (get headers "username-or-email")
-        password          (get headers "password")]
+        password (get headers "password")]
     (when (or (str/blank? username-or-email)
               (str/blank? password))
       (util/runtime-ex "Username/e-mail and password don't match."))
@@ -367,7 +367,8 @@
 (defn upload-course
   [ctx]
   (let [username-or-email (check-auth ctx)
-        file              (get-file ctx)]
+        file (get-file ctx)]
+    (log/info (str "User: " username-or-email " uploaded course."))
     (with-open [rdr (io/reader file)]
       (let [content (->> rdr line-seq (str/join "\n"))
             {:keys [course helper-fns]} (validate-content content)]
