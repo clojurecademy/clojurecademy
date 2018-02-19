@@ -244,14 +244,16 @@
                                  (reset! result result-i)
                                  (reset! path path-i))
                                (not @result))
-         :existed?           (fn [ctx] @result)
-         :moved-temporarily? (fn [ctx]
-                               {:location (or @path "/")})})
+         :existed?           (fn [_] @result)
+         :moved-temporarily? (fn [_]
+                               {:location (or @path "/")})
+         :redirect-vec       [result path]})
       (when-let [[result path] (:redirect! m)]
-        {:exists?            (fn [ctx] (not result))
-         :existed?           (fn [ctx] result)
-         :moved-temporarily? (fn [ctx]
-                               {:location (or path "/")})}))))
+        {:exists?            (fn [_] (not result))
+         :existed?           (fn [_] result)
+         :moved-temporarily? (fn [_]
+                               {:location (or path "/")})
+         :redirect-vec       [result path]}))))
 
 
 (defn get-auth-and-redirect-maps
