@@ -11,8 +11,10 @@
             [kezban.core :refer :all]
             [clojurecademy.util.logging :as log]
             [clojurecademy.util.config :as conf]
-            [postal.core :as postal])
-  (:import (java.util Date UUID)))
+            [postal.core :as postal]
+            [clojure.tools.namespace.find :as f])
+  (:import (java.util Date UUID)
+           (java.io File)))
 
 (def json-media-types ["application/json" "application/json; charset=utf-8" "application/json; charset=UTF-8"])
 
@@ -288,8 +290,11 @@
 
 
 (defn get-routes
-  [resource-nses not-found-symbol]
-  (let [resource-vars (->> resource-nses
+  [resource-base-ns not-found-symbol]
+  (let [resource-vars (->> (System/getProperty "user.dir")
+                           (File.)
+                           f/find-namespaces-in-dir
+                           (filter #(clojure.string/starts-with? % resource-base-ns))
                            (map #(do (require %) %))
                            (reduce #(conj %1 (vals (ns-publics %2))) [])
                            flatten

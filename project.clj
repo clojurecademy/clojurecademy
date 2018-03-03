@@ -18,7 +18,7 @@
                  [org.slf4j/slf4j-api "1.7.25"]
                  [org.clojure/tools.logging "0.3.1"]
                  [org.clojure/tools.namespace "0.2.11"]
-                 [org.logback-extensions/logback-ext-loggly "0.1.4"]
+                 [org.logback-extensions/logback-ext-loggly "0.1.5"]
                  [com.datomic/datomic-pro "0.9.5561" :exclusions [org.slf4j/slf4j-api]]
                  [com.amazonaws/aws-java-sdk-dynamodb "1.11.171"]
                  [clojurecademy "0.1.0"]

@@ -22,15 +22,8 @@
 
 (def ignored-csrf-paths ["/course/upload"])
 
-(def resource-nses '[clojurecademy.resource.auth
-                     clojurecademy.resource.course
-                     clojurecademy.resource.home
-                     clojurecademy.resource.user
-                     clojurecademy.resource.clojure-jobs])
 
-(def not-found-symbol 'clojurecademy.resource.home/not-found)
-
-(def handler (-> (resource.util/get-routes resource-nses not-found-symbol)
+(def handler (-> (resource.util/get-routes "clojurecademy.resource." 'clojurecademy.resource.home/not-found)
                  (wrap-session-and-cookie ignored-csrf-paths)
                  (wrap-anti-forgery {:ignored-paths ignored-csrf-paths})
                  (wrap-multipart-params {:max-file-size 11000000})
@@ -56,4 +49,5 @@
   (let [port (Integer/parseInt (or (System/getenv "PORT") "3000"))]
     (start port)))
 
-;(init!)
+(comment
+  (-main))
