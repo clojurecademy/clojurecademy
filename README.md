@@ -53,7 +53,7 @@ Create __config.edn__ in _resources_ folder and configure the following map:
 ```
 MIT License
 
-Copyright 2018 Ertuğrul Çetin
+Copyright 2019 Ertuğrul Çetin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
