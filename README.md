@@ -36,14 +36,12 @@ Create __config.edn__ in _resources_ folder and configure the following map:
 ### Running
 
 * Run Datomic Transactor
-* Do NOT comment out __(init!)__ function in _core.clj_
 * Run `lein cljsbuild once min-app`
 * Run `lein cljsbuild once min-course`
 * Run `lein ring server-headless 3000`
 
 ### Building
 
-* Comment out __(init!)__ function in _core.clj_
 * Run `lein cljsbuild once min-app`
 * Run `lein cljsbuild once min-course`
 * Run `lein uberjar`
